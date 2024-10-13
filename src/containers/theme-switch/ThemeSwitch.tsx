@@ -1,12 +1,12 @@
 import { useLayoutEffect, useState } from "react";
 import { Moon, Sun } from "@phosphor-icons/react";
 import IconButton from "@/components/icon-button/IconButton";
-import { THEME_KEY, DARK_THEME, LIGHT_THEME } from "@/constants";
+import { THEME_KEY_LS, DARK_THEME, LIGHT_THEME } from "@/constants";
 
 type Theme = "light" | "dark";
 
 const getPreferredTheme = (): Theme => {
-  const savedTheme = localStorage.getItem(THEME_KEY);
+  const savedTheme = localStorage.getItem(THEME_KEY_LS);
   if (savedTheme == null) {
     return window.matchMedia("(prefers-color-scheme: dark)").matches
       ? DARK_THEME
@@ -20,7 +20,7 @@ const ThemeSwitch = () => {
 
   useLayoutEffect(() => {
     document.body.setAttribute("data-theme", theme);
-    localStorage.setItem(THEME_KEY, theme);
+    localStorage.setItem(THEME_KEY_LS, theme);
   }, [theme]);
 
   const handleClick = () => {
