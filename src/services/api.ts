@@ -1,4 +1,4 @@
-import { Movie } from "@/types";
+import { MoviesApiResponse } from "@/types";
 
 const fetchMovies = async (path: string, query: Record<string, string>) => {
   const queryParams = {
@@ -11,8 +11,8 @@ const fetchMovies = async (path: string, query: Record<string, string>) => {
   }${path}?${new URLSearchParams(queryParams)}`;
 
   const response = await fetch(url);
-  const data = await response.json();
-  return data.results as Movie[];
+  const data: MoviesApiResponse = await response.json();
+  return data;
 };
 
 export const fethRecentMovies = async (page: number = 1) => {

@@ -1,21 +1,25 @@
-body[data-theme="light"] {
+:root {
+  /* common-colors */
+  --like-color: #dc3545;
+
+  /* light-theme-specific-colors */
   --bg-color: #ffffff;
   --text-color: #333333;
   --primary-color: #007bff;
-  --secondary-color: #6c757d;
+  --secondary-color: #949799;
 }
 
+/* dark-theme-specific-colors */
 body[data-theme="dark"] {
   --bg-color: #333333;
   --text-color: #ffffff;
   --primary-color: #4da3ff;
-  --secondary-color: #a9a9a9;
+  --secondary-color: #979191;
 }
 
 body {
   font-family: Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
-  /* transition: background-color 0.3s, color 0.3s; */
   margin: 0;
 }
