@@ -1,9 +1,9 @@
 import { MoviesList } from "@/components/movies-list/MoviesList";
-import { getFavorites } from "@/utils";
+import { useFavorites } from "@/hooks/useFavorites";
 import styles from "./favorites.module.css";
 
 const Favorites = () => {
-  const favorites = getFavorites();
+  const { favorites } = useFavorites();
   return (
     <div className={styles.container}>
       {favorites.length > 0 ? (

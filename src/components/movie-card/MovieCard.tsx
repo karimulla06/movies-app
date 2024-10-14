@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Heart } from "@phosphor-icons/react";
 import { Movie } from "@/types";
-import { isFavorite, toggleFavorite } from "@/utils";
 import styles from "./movie-card.module.css";
+import { useFavorites } from "@/hooks/useFavorites";
 
 export const MovieCard = ({ id, title, overview, poster_path }: Movie) => {
+  const { isFavorite, toggleFavorite } = useFavorites();
   const [favorite, setFavorite] = useState(isFavorite(id));
 
   const handleFavoriteToggle = () => {
