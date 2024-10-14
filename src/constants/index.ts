@@ -21,4 +21,5 @@ export const translation_keys = {
   your_favorites: "Your Favorites",
   not_found_title: "404 - Page Not Found",
   not_found_message: "The page you are looking for does not exist.",
+  error_fetching_movies: "An error occurred while fetching movies.",
 };

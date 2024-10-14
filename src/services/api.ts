@@ -27,7 +27,7 @@ export const fetchTrendingMovies = async (page: number = 1) => {
   });
 };
 
-export const seachMovies = async (query: string, page: number = 1) => {
+export const searchMovies = async (query: string, page: number = 1) => {
   return await fetchMovies("/search/movie", {
     page: `${page}`,
     query,

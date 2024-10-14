@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Tabs from "@/components/tabs/Tabs";
-import { TrendingMovies } from "@/containers/trending-movies/TrendingMovies";
-import { RecentMovies } from "@/containers/recent-movies/RecentMovies";
+import { Tabs } from "@/components/tabs/Tabs";
 import { SearchResults } from "@/containers/search-results/SearchResults";
 import { translation_keys } from "@/constants";
+import { FetchMovies } from "@/components/fetch-movies/FetchMovies";
+import { fetchTrendingMovies, fethRecentMovies } from "@/services/api";
 import styles from "./home.module.css";
 
 const Home = () => {
@@ -11,11 +11,11 @@ const Home = () => {
   const tabs = [
     {
       label: translation_keys.trending,
-      content: <TrendingMovies />,
+      content: <FetchMovies fetchFn={fetchTrendingMovies} />,
     },
     {
       label: translation_keys.recent,
-      content: <RecentMovies />,
+      content: <FetchMovies fetchFn={fethRecentMovies} />,
     },
   ];
 

@@ -4,12 +4,12 @@ import { MovieCard } from "@/components/movie-card/MovieCard";
 import styles from "./movies-list.module.css";
 import { translation_keys } from "@/constants";
 
-type Props = {
+interface Props {
   movies: Movie[];
   showLoadMore?: boolean;
   onLoadMore?: () => Promise<void>;
   isLoading?: boolean;
-};
+}
 
 export const MoviesList = ({
   movies,

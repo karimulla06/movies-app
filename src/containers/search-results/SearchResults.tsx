@@ -1,19 +1,18 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useReducer, useRef } from "react";
 import { MoviesList } from "@/components/movies-list/MoviesList";
-import { seachMovies } from "@/services/api";
-import { Movie } from "@/types";
+import { searchMovies } from "@/services/api";
 import { debounce } from "@/utils";
-import styles from "./search-results.module.css";
 import { translation_keys } from "@/constants";
+import { initialState, reducer } from "./reducer";
+import styles from "./search-results.module.css";
 
 interface SearchResultsProps {
   query: string;
 }
 
 export const SearchResults = ({ query }: SearchResultsProps) => {
-  const [movies, setMovies] = useState<Movie[]>([]);
-  const [page, setPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { movies, page, isLoading, error } = state;
   const debouncedQueryRef = useRef(query);
 
   const fetchMovies = async (
@@ -21,26 +20,26 @@ export const SearchResults = ({ query }: SearchResultsProps) => {
     pageNumber = page
   ) => {
     if (!searchQuery) {
-      setMovies([]);
-      setPage(1);
-      setIsLoading(false);
+      dispatch({ type: "RESET" });
       return;
     }
-    console.log(searchQuery, pageNumber);
-
-    setIsLoading(true);
+    dispatch({ type: "SET_LOADING", payload: true });
     try {
-      const {
-        results,
-        page: currentPage,
-        total_pages,
-      } = await seachMovies(searchQuery, pageNumber);
-      setMovies(pageNumber === 1 ? results : [...movies, ...results]);
-      setPage(currentPage == total_pages ? 0 : pageNumber + 1);
+      const response = await searchMovies(searchQuery, pageNumber);
+      dispatch({
+        type: "SET_MOVIES",
+        payload: {
+          movies: response.results,
+          page: response.page,
+        },
+      });
     } catch (error) {
-      console.error(error);
+      dispatch({
+        type: "SET_ERROR",
+        payload: "An error occurred while fetching movies.",
+      });
     } finally {
-      setIsLoading(false);
+      dispatch({ type: "SET_LOADING", payload: false });
     }
   };
 
@@ -48,17 +47,31 @@ export const SearchResults = ({ query }: SearchResultsProps) => {
 
   useEffect(() => {
     debouncedQueryRef.current = query;
-    setIsLoading(true);
+    dispatch({ type: "SET_LOADING", payload: true });
     debouncedFetchMovies(query, 1);
   }, [query]);
 
+  if (error) {
+    return (
+      <p className={styles.message} aria-live="assertive">
+        {error}
+      </p>
+    );
+  }
+
   if (isLoading && movies.length === 0) {
-    return <p className={styles.message}>{translation_keys.searching}</p>;
+    return (
+      <p className={styles.message} aria-live="polite">
+        {translation_keys.searching}
+      </p>
+    );
   }
 
   if (movies.length === 0) {
     return (
-      <p className={styles.message}>{translation_keys.no_results_found}</p>
+      <p className={styles.message} aria-live="polite">
+        {translation_keys.no_results_found}
+      </p>
     );
   }
 

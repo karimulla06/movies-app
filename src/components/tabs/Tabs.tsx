@@ -11,7 +11,7 @@ interface TabsProps {
   tabs: Tab[];
 }
 
-const Tabs: React.FC<TabsProps> = ({ tabs }) => {
+export const Tabs: React.FC<TabsProps> = ({ tabs }) => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
@@ -30,9 +30,9 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
           </button>
         ))}
       </div>
-      <div className={styles.tabContent}>{tabs[activeTab].content}</div>
+      <div className={styles.tabContent} key={activeTab}>
+        {tabs[activeTab].content}
+      </div>
     </div>
   );
 };
-
-export default Tabs;
