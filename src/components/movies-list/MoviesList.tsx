@@ -2,6 +2,7 @@ import { Movie } from "@/types";
 import { MovieCard } from "@/components/movie-card/MovieCard";
 
 import styles from "./movies-list.module.css";
+import { translation_keys } from "@/constants";
 
 type Props = {
   movies: Movie[];
@@ -17,7 +18,7 @@ export const MoviesList = ({
   isLoading,
 }: Props) => {
   return (
-    <div>
+    <>
       <div className={styles.movies_list}>
         {movies.map((movie) => (
           <MovieCard key={movie.id} {...movie} />
@@ -29,9 +30,9 @@ export const MoviesList = ({
           onClick={onLoadMore}
           disabled={isLoading}
         >
-          {isLoading ? "Loading..." : "Load More"}
+          {isLoading ? translation_keys.loading : translation_keys.load_more}
         </button>
       )}
-    </div>
+    </>
   );
 };

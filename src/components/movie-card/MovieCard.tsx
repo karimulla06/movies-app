@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { Movie } from "@/types";
-import styles from "./movie-card.module.css";
-import IconButton from "../icon-button/IconButton";
 import { Heart } from "@phosphor-icons/react";
+import { Movie } from "@/types";
 import { isFavorite, toggleFavorite } from "@/utils";
+import styles from "./movie-card.module.css";
 
 export const MovieCard = ({ id, title, overview, poster_path }: Movie) => {
   const [favorite, setFavorite] = useState(isFavorite(id));
@@ -14,21 +13,22 @@ export const MovieCard = ({ id, title, overview, poster_path }: Movie) => {
   };
 
   const imageSrc = `${import.meta.env.VITE_IMAGE_BASE_URL}${poster_path}`;
+
   return (
-    <div className={styles.movie_card}>
-      <img src={imageSrc} alt={title} className={styles.movie_poster} />
-      <div className={styles.movie_info}>
-        <div className={styles.movie_title_container}>
-          <h3 className={styles.movie_title}>{title}</h3>
-          <IconButton onClick={handleFavoriteToggle}>
+    <div className={styles.card}>
+      <img src={imageSrc} alt={title} className={styles.poster} />
+      <div className={styles.info}>
+        <div className={styles.title_container}>
+          <h3 className={styles.title}>{title}</h3>
+          <button className={styles.like_button} onClick={handleFavoriteToggle}>
             <Heart
-              className={styles.like}
+              className={styles.like_icon}
               weight={favorite ? "fill" : "regular"}
               size={24}
             />
-          </IconButton>
+          </button>
         </div>
-        <p>{overview}</p>
+        <p className={styles.overview}>{overview}</p>
       </div>
     </div>
   );

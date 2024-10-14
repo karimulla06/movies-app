@@ -4,6 +4,7 @@ import { seachMovies } from "@/services/api";
 import { Movie } from "@/types";
 import { debounce } from "@/utils";
 import styles from "./search-results.module.css";
+import { translation_keys } from "@/constants";
 
 interface SearchResultsProps {
   query: string;
@@ -52,11 +53,13 @@ export const SearchResults = ({ query }: SearchResultsProps) => {
   }, [query]);
 
   if (isLoading && movies.length === 0) {
-    return <p className={styles.message}>Searching...</p>;
+    return <p className={styles.message}>{translation_keys.searching}</p>;
   }
 
   if (movies.length === 0) {
-    return <p className={styles.message}>No results found</p>;
+    return (
+      <p className={styles.message}>{translation_keys.no_results_found}</p>
+    );
   }
 
   return (

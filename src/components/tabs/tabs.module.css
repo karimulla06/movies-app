@@ -22,11 +22,10 @@
 }
 
 .tabButton.active {
-  border-bottom: 2px solid #007bff;
-  color: #007bff;
+  border-bottom: 2px solid var(--primary-color);
+  color: var(--primary-color);
 }
 
 .tabContent {
-  padding: 20px;
-  background-color: #fff;
+  padding: 10px;
 }

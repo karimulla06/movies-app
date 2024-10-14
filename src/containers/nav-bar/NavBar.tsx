@@ -1,15 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
 import { Heart, House } from "@phosphor-icons/react";
+import { ROUTES, translation_keys } from "@/constants";
 
 import styles from "./nav-bar.module.css";
-import { ROUTES } from "@/constants";
 
 const NavBar = () => {
   const location = useLocation();
-  console.log(location.pathname);
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Movies App</h1>
+      <h1 className={styles.title}>{translation_keys.app_name}</h1>
       <div className={styles.buttons}>
         {location.pathname === ROUTES.HOME ? (
           <Link to={ROUTES.FAVORITES}>

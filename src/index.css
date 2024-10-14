@@ -1,13 +1,18 @@
 :root {
   --bg-color: #ffffff;
-  --text-color: #333333;
-  --primary-color: #007bff;
+  --text-color: #131313;
+  --primary-color: #7855fa;
   --secondary-color: #949799;
   --like-color: #dc3545;
+  --box-shadow-color: rgba(0, 0, 0, 0.7);
+}
+
+* {
+  font-family: Montserrat, Arial, sans-serif;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   margin: 0;

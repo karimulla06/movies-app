@@ -1,19 +1,20 @@
-import styles from "./home.module.css";
+import { useState } from "react";
 import Tabs from "@/components/tabs/Tabs";
 import { TrendingMovies } from "@/containers/trending-movies/TrendingMovies";
 import { RecentMovies } from "@/containers/recent-movies/RecentMovies";
 import { SearchResults } from "@/containers/search-results/SearchResults";
-import { useState } from "react";
+import { translation_keys } from "@/constants";
+import styles from "./home.module.css";
 
 const Home = () => {
   const [query, setQuery] = useState("");
   const tabs = [
     {
-      label: "Trending",
+      label: translation_keys.trending,
       content: <TrendingMovies />,
     },
     {
-      label: "Recent",
+      label: translation_keys.recent,
       content: <RecentMovies />,
     },
   ];
@@ -24,7 +25,7 @@ const Home = () => {
         <input
           className={styles.search_input}
           type="text"
-          placeholder="Search for movie, tv show, person..."
+          placeholder={translation_keys.search_placeholder}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
