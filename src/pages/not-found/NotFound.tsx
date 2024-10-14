@@ -3,7 +3,7 @@ import { translation_keys } from "@/constants";
 function NotFound() {
   return (
     <div>
-      <h1>{translation_keys.not_found_title}</h1>
+      <h2>{translation_keys.not_found_title}</h2>
       <p>{translation_keys.not_found_message}</p>
     </div>
   );

@@ -52,26 +52,16 @@ export const SearchResults = ({ query }: SearchResultsProps) => {
   }, [query]);
 
   if (error) {
-    return (
-      <p className={styles.message} aria-live="assertive">
-        {error}
-      </p>
-    );
+    return <p className={styles.message}>{error}</p>;
   }
 
   if (isLoading && movies.length === 0) {
-    return (
-      <p className={styles.message} aria-live="polite">
-        {translation_keys.searching}
-      </p>
-    );
+    return <p className={styles.message}>{translation_keys.searching}</p>;
   }
 
   if (movies.length === 0) {
     return (
-      <p className={styles.message} aria-live="polite">
-        {translation_keys.no_results_found}
-      </p>
+      <p className={styles.message}>{translation_keys.no_results_found}</p>
     );
   }
 

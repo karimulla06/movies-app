@@ -9,3 +9,10 @@
     padding: 0;
   }
 }
+
+.fallback_loading {
+  text-align: center;
+  margin: 30px 0;
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+}

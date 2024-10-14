@@ -27,8 +27,13 @@ export const MovieCard = ({ id, title, overview, poster_path }: Movie) => {
       />
       <div className={styles.info}>
         <div className={styles.title_container}>
-          <h3 className={styles.title}>{title}</h3>
-          <button className={styles.like_button} onClick={handleFavoriteToggle}>
+          <h2 className={styles.title}>{title}</h2>
+          <button
+            className={styles.like_button}
+            onClick={handleFavoriteToggle}
+            aria-label="Favorite"
+            title="Favorite"
+          >
             <Heart
               className={styles.like_icon}
               weight={favorite ? "fill" : "regular"}

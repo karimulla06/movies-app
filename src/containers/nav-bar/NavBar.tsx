@@ -11,11 +11,11 @@ const NavBar = () => {
       <h1 className={styles.title}>{translation_keys.app_name}</h1>
       <div className={styles.buttons}>
         {location.pathname === ROUTES.HOME ? (
-          <Link to={ROUTES.FAVORITES}>
+          <Link to={ROUTES.FAVORITES} aria-label="Go to favorites">
             <Heart size={24} weight="duotone" color="red" />
           </Link>
         ) : (
-          <Link to={ROUTES.HOME}>
+          <Link to={ROUTES.HOME} aria-label="Go to home">
             <House size={24} weight="duotone" />
           </Link>
         )}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, ReactNode } from "react";
 import { Movie } from "@/types";
 import { FAVORITES_KEY_LS } from "@/constants";
-import { FavoritesContext } from "./useFavorites";
+import { FavoritesContext } from "@/hooks/useFavorites";
 
 export const FavoritesProvider: React.FC<{ children: ReactNode }> = ({
   children,
