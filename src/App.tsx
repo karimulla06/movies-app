@@ -1,8 +1,9 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ROUTES, translation_keys } from "@/constants";
-import NavBar from "@/containers/nav-bar/NavBar";
+import { NavBar } from "@/containers/nav-bar/NavBar";
 import { FavoritesProvider } from "@/providers/FavoritesProvider";
+import { ROUTES, translation_keys } from "@/constants";
+
 import "./App.css";
 
 const Home = lazy(() => import("@/pages/home/Home"));

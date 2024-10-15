@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Heart } from "@phosphor-icons/react";
-import { Movie } from "@/types";
 import { useFavorites } from "@/hooks/useFavorites";
-import { placeholder_images_url } from "@/constants";
+import { Movie } from "@/types";
 import styles from "./movie-card.module.css";
 
 export const MovieCard = ({ id, title, overview, poster_path }: Movie) => {
@@ -17,6 +16,10 @@ export const MovieCard = ({ id, title, overview, poster_path }: Movie) => {
     toggleFavorite({ id, title, overview, poster_path });
     setFavorite(!favorite);
   };
+
+  const placeholder_images_url = `${
+    import.meta.env.VITE_PLACEHOLDER_IMAGE_BASE_URL
+  }/400x600?text=No+Image+Available`;
 
   return (
     <div className={styles.card}>

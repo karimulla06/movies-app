@@ -1,7 +1,8 @@
 import { MoviesList } from "@/components/movies-list/MoviesList";
 import { useFavorites } from "@/hooks/useFavorites";
-import styles from "./favorites.module.css";
 import { translation_keys } from "@/constants";
+
+import styles from "./favorites.module.css";
 
 const Favorites = () => {
   const { favorites } = useFavorites();

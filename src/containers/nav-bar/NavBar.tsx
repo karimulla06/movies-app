@@ -1,11 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
 import { Heart, House } from "@phosphor-icons/react";
+import { ThemeSwitch } from "@/components/theme-switch/ThemeSwitch";
 import { ROUTES, translation_keys } from "@/constants";
 
 import styles from "./nav-bar.module.css";
-import ThemeSwitch from "@/components/theme-switch/ThemeSwitch";
 
-const NavBar = () => {
+export const NavBar = () => {
   const location = useLocation();
   return (
     <div className={styles.container}>
@@ -27,5 +27,3 @@ const NavBar = () => {
     </div>
   );
 };
-
-export default NavBar;

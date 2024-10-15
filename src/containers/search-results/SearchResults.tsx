@@ -19,7 +19,6 @@ export const SearchResults = ({ query }: SearchResultsProps) => {
     searchQuery = debouncedQueryRef.current,
     pageNumber = page
   ) => {
-    console.log(searchQuery, pageNumber);
     if (!searchQuery) {
       dispatch({ type: "RESET" });
       return;

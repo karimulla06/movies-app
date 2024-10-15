@@ -1,7 +1,8 @@
 import React, { useState, useEffect, ReactNode } from "react";
-import { Movie } from "@/types";
-import { FAVORITES_KEY_LS } from "@/constants";
 import { FavoritesContext } from "@/hooks/useFavorites";
+import { Movie } from "@/types";
+
+const FAVORITES_KEY = "favorites";
 
 export const FavoritesProvider: React.FC<{ children: ReactNode }> = ({
   children,
@@ -10,7 +11,7 @@ export const FavoritesProvider: React.FC<{ children: ReactNode }> = ({
 
   // Load favorites from localStorage on initial render
   useEffect(() => {
-    const storedFavorites = localStorage.getItem(FAVORITES_KEY_LS);
+    const storedFavorites = localStorage.getItem(FAVORITES_KEY);
     if (storedFavorites) {
       setFavorites(JSON.parse(storedFavorites));
     }
@@ -18,7 +19,7 @@ export const FavoritesProvider: React.FC<{ children: ReactNode }> = ({
 
   // Update localStorage whenever favorites change
   useEffect(() => {
-    localStorage.setItem(FAVORITES_KEY_LS, JSON.stringify(favorites));
+    localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
   }, [favorites]);
 
   // Function to check if a movie is in favorites

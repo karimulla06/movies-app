@@ -1,8 +1,8 @@
-import { Movie } from "@/types";
 import { MovieCard } from "@/components/movie-card/MovieCard";
+import { translation_keys } from "@/constants";
+import { Movie } from "@/types";
 
 import styles from "./movies-list.module.css";
-import { translation_keys } from "@/constants";
 
 interface Props {
   movies: Movie[];

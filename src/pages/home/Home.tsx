@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Tabs } from "@/components/tabs/Tabs";
-import { SearchResults } from "@/containers/search-results/SearchResults";
-import { translation_keys } from "@/constants";
 import { FetchMovies } from "@/components/fetch-movies/FetchMovies";
+import { SearchResults } from "@/containers/search-results/SearchResults";
 import { fetchTrendingMovies, fethRecentMovies } from "@/services/api";
+import { translation_keys } from "@/constants";
+
 import styles from "./home.module.css";
 
 const Home = () => {

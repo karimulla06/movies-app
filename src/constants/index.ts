@@ -1,6 +1,3 @@
-// local storage keys
-export const FAVORITES_KEY_LS = "favorites";
-
 // routes
 export const ROUTES = {
   HOME: "/",
@@ -23,7 +20,3 @@ export const translation_keys = {
   not_found_message: "The page you are looking for does not exist.",
   error_fetching_movies: "An error occurred while fetching movies.",
 };
-
-// placeholder images url
-export const placeholder_images_url =
-  "https://placehold.co/400x600?text=No+Image+Available";

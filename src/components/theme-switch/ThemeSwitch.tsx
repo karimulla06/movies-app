@@ -18,7 +18,7 @@ const getPreferredTheme = (): Theme => {
   return savedTheme == DARK_THEME ? DARK_THEME : LIGHT_THEME;
 };
 
-const ThemeSwitch = () => {
+export const ThemeSwitch = () => {
   const [theme, setTheme] = useState(getPreferredTheme);
 
   useEffect(() => {
@@ -44,5 +44,3 @@ const ThemeSwitch = () => {
     </button>
   );
 };
-
-export default ThemeSwitch;

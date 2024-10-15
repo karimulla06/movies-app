@@ -5,15 +5,15 @@
   padding-top: 1rem;
 }
 
-@media screen and (max-width: 768px) {
-  #root {
-    padding: 0;
-  }
-}
-
 .fallback_loading {
   text-align: center;
   margin: 30px 0;
   color: var(--color-text-secondary);
   font-size: 1.2rem;
+}
+
+@media screen and (max-width: 768px) {
+  #root {
+    padding: 0;
+  }
 }
