@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { Heart, House } from "@phosphor-icons/react";
-import { ThemeSwitch } from "@/components/theme-switch/ThemeSwitch";
+import { ThemeSwitch } from "@/containers/theme-switch/ThemeSwitch";
 import { ROUTES, translation_keys } from "@/constants";
 
 import styles from "./nav-bar.module.css";
