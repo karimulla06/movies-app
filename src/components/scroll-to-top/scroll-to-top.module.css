@@ -1,0 +1,12 @@
+.scroll_to_top_button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--color-text-secondary);
+  box-shadow: 5px 5px 10px 2px var(--shadow-card);
+}

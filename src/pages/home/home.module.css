@@ -14,7 +14,7 @@
   border-color: var(--color-accent-primary);
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .container {
     padding: 0 1rem;
   }

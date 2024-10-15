@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { NavBar } from "@/containers/nav-bar/NavBar";
+import { ScrollToTop } from "@/components/scroll-to-top/ScrollToTop";
 import { FavoritesProvider } from "@/providers/FavoritesProvider";
 import { ROUTES, translation_keys } from "@/constants";
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
+        <ScrollToTop />
       </FavoritesProvider>
     </BrowserRouter>
   );

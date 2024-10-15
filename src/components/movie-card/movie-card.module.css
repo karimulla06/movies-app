@@ -8,8 +8,10 @@
   box-shadow: 5px 5px 10px 2px var(--shadow-card);
 }
 
-.card:hover {
-  transform: translateY(-5px);
+@media (min-width: 768px) {
+  .card:hover {
+    transform: translateY(-5px);
+  }
 }
 
 .image_container {

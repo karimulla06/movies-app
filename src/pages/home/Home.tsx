@@ -29,7 +29,6 @@ const Home = () => {
           placeholder={translation_keys.search_placeholder}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          autoFocus
         />
       </div>
       {query ? <SearchResults query={query} /> : <Tabs tabs={tabs} />}
