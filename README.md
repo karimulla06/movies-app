@@ -2,6 +2,8 @@
 
 A React-based web application for browsing and searching movies, with features like trending movies, recent releases, and personal favorites.
 
+Check out the live demo of the app: [Movies App](https://movies-app-karim.vercel.app/)
+
 ## Features
 
 - Browse trending and recent movies
