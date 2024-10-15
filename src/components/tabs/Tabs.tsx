@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Tabs.module.css";
+import styles from "./tabs.module.css";
 
 interface Tab {
   label: string;
