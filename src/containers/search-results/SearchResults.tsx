@@ -12,13 +12,14 @@ interface SearchResultsProps {
 
 export const SearchResults = ({ query }: SearchResultsProps) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { movies, page, isLoading, error } = state;
+  const { movies, page, showLoadMore, isLoading, error } = state;
   const debouncedQueryRef = useRef(query);
 
   const fetchMovies = async (
     searchQuery = debouncedQueryRef.current,
     pageNumber = page
   ) => {
+    console.log(searchQuery, pageNumber);
     if (!searchQuery) {
       dispatch({ type: "RESET" });
       return;
@@ -28,10 +29,7 @@ export const SearchResults = ({ query }: SearchResultsProps) => {
       const response = await searchMovies(searchQuery, pageNumber);
       dispatch({
         type: "SET_MOVIES",
-        payload: {
-          movies: response.results,
-          page: response.page,
-        },
+        payload: response,
       });
     } catch (error) {
       dispatch({
@@ -68,8 +66,8 @@ export const SearchResults = ({ query }: SearchResultsProps) => {
   return (
     <MoviesList
       movies={movies}
-      onLoadMore={fetchMovies}
-      showLoadMore={page !== 0}
+      onLoadMore={() => fetchMovies(query, page + 1)}
+      showLoadMore={showLoadMore}
       isLoading={isLoading && movies.length > 0}
     />
   );

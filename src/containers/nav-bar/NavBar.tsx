@@ -9,7 +9,9 @@ const NavBar = () => {
   const location = useLocation();
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>{translation_keys.app_name}</h1>
+      <Link to={ROUTES.HOME} aria-label="Go to home">
+        <h1 className={styles.title}>{translation_keys.app_name}</h1>
+      </Link>
       <div className={styles.buttons}>
         {location.pathname === ROUTES.HOME ? (
           <Link to={ROUTES.FAVORITES} aria-label="Go to favorites">

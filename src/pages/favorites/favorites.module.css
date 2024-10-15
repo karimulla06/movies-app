@@ -1,7 +1,7 @@
 .title {
   margin: 0;
   font-size: 1.5rem;
-  color: var(--color-title);
+  color: var(--color-text-primary);
 }
 
 .no_favorites {

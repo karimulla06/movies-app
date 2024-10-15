@@ -1,8 +1,9 @@
-import { Movie } from "@/types";
+import { Movie, MoviesApiResponse } from "@/types";
 
 type State = {
   movies: Movie[];
   page: number;
+  showLoadMore: boolean;
   isLoading: boolean;
   error: string | null;
 };
@@ -10,7 +11,7 @@ type State = {
 type Action =
   | {
       type: "SET_MOVIES";
-      payload: { movies: Movie[]; page: number };
+      payload: MoviesApiResponse;
     }
   | {
       type: "SET_LOADING";
@@ -25,6 +26,7 @@ type Action =
 export const initialState: State = {
   movies: [],
   page: 1,
+  showLoadMore: false,
   isLoading: false,
   error: null,
 };
@@ -36,9 +38,10 @@ export function reducer(state: State, action: Action): State {
         ...state,
         movies:
           action.payload.page === 1
-            ? action.payload.movies
-            : [...state.movies, ...action.payload.movies],
+            ? action.payload.results
+            : [...state.movies, ...action.payload.results],
         page: action.payload.page,
+        showLoadMore: action.payload.page !== action.payload.total_pages,
       };
     case "SET_LOADING":
       return { ...state, isLoading: action.payload };
