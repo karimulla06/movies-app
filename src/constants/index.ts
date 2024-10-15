@@ -12,7 +12,7 @@ export const translation_keys = {
   loading: "Loading...",
   load_more: "Load More",
   searching: "Searching...",
-  search_placeholder: "Search for movie, tv show, person...",
+  search_placeholder: "Search for movies...",
   no_results_found: "No results found",
   no_favorites_found: "You haven't added any favorites yet",
   your_favorites: "Your Favorites",

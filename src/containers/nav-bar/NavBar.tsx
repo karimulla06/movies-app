@@ -9,7 +9,11 @@ export const NavBar = () => {
   const location = useLocation();
   return (
     <div className={styles.container}>
-      <Link to={ROUTES.HOME} aria-label="Go to home">
+      <Link
+        to={ROUTES.HOME}
+        className={styles.title_link}
+        aria-label="Go to home"
+      >
         <h1 className={styles.title}>{translation_keys.app_name}</h1>
       </Link>
       <div className={styles.buttons}>
