@@ -6,7 +6,7 @@
   border-radius: 50px;
   margin-bottom: 20px;
   background-color: transparent;
-  color: var(--color-title);
+  color: var(--color-text-primary);
 }
 
 .search_input:focus {

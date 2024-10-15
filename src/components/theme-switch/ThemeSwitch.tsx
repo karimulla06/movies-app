@@ -31,7 +31,11 @@ const ThemeSwitch = () => {
   };
 
   return (
-    <button onClick={handleClick} className={styles.button}>
+    <button
+      onClick={handleClick}
+      className={styles.button}
+      aria-label="Toggle theme"
+    >
       {theme === LIGHT_THEME ? (
         <Moon size={21} />
       ) : (
