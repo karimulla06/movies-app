@@ -2,6 +2,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
+  padding-top: 1rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -13,6 +14,6 @@
 .fallback_loading {
   text-align: center;
   margin: 30px 0;
-  color: var(--secondary-color);
+  color: var(--color-text-secondary);
   font-size: 1.2rem;
 }

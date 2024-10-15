@@ -5,7 +5,6 @@
 
 .tabList {
   display: flex;
-  border-bottom: 1px solid #ccc;
 }
 
 .tabButton {
@@ -15,15 +14,17 @@
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-text-secondary);
 }
 
 .tabButton:hover {
-  background-color: #f0f0f0;
+  background-color: var(--color-hover);
 }
 
 .tabButton.active {
-  border-bottom: 2px solid var(--primary-color);
-  color: var(--primary-color);
+  border-bottom: 2px solid var(--color-accent-primary);
+  color: var(--color-accent-primary);
 }
 
 .tabContent {

@@ -11,6 +11,7 @@ export const MovieCard = ({ id, title, overview, poster_path }: Movie) => {
   const [imageSrc, setImageSrc] = useState(
     `${import.meta.env.VITE_IMAGE_BASE_URL}${poster_path}`
   );
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleFavoriteToggle = () => {
     toggleFavorite({ id, title, overview, poster_path });
@@ -19,12 +20,21 @@ export const MovieCard = ({ id, title, overview, poster_path }: Movie) => {
 
   return (
     <div className={styles.card}>
-      <img
-        src={imageSrc}
-        alt={title}
-        className={styles.poster}
-        onError={() => setImageSrc(placeholder_images_url)}
-      />
+      <div className={styles.image_container}>
+        {!imageLoaded && <div className={styles.placeholder} />}
+        <img
+          src={imageSrc}
+          alt={title}
+          className={`${styles.poster} ${imageLoaded ? styles.loaded : ""}`}
+          onLoad={() => setImageLoaded(true)}
+          onError={() => {
+            setImageSrc(placeholder_images_url);
+            setImageLoaded(true);
+          }}
+          width="400"
+          height="600"
+        />
+      </div>
       <div className={styles.info}>
         <div className={styles.title_container}>
           <h2 className={styles.title}>{title}</h2>

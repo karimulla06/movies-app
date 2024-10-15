@@ -3,6 +3,7 @@ import { Heart, House } from "@phosphor-icons/react";
 import { ROUTES, translation_keys } from "@/constants";
 
 import styles from "./nav-bar.module.css";
+import ThemeSwitch from "@/components/theme-switch/ThemeSwitch";
 
 const NavBar = () => {
   const location = useLocation();
@@ -19,6 +20,7 @@ const NavBar = () => {
             <House size={24} weight="duotone" />
           </Link>
         )}
+        <ThemeSwitch />
       </div>
     </div>
   );
